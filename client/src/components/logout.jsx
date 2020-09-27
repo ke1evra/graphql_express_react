@@ -8,6 +8,7 @@ export default class Home extends Component {
       window.localStorage.removeItem("isAuthenticated");
       window.localStorage.removeItem("username");
       window.location.reload(false);
+      return null;
     } else {
       //JSX
       return <Redirect to="/login" />;

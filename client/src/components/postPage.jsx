@@ -29,7 +29,6 @@ export default class postPage extends Component {
       },
     })
       .then((post)=>{
-        console.log(post.data.data.post);
         this.setState({post: post.data.data.post});
       })
       .catch(e => console.log(e))
