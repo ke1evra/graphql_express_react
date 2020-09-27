@@ -13,8 +13,9 @@ export default class postPage extends Component {
   }
 
   getPost(postId){
+    const host = window.location.hostname || 'localhost';
     axios({
-      url: "http://localhost:8080/api",
+      url: `http://${host}:8080/api`,
       method: "POST",
       data: {
         query: `{

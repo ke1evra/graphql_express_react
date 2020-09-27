@@ -11,8 +11,9 @@ export default class Login extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { username, password } = this.state;
+    const host = window.location.hostname || 'localhost';
     axios({
-      url: "http://localhost:8080/login",
+      url: `http://${host}:8080/login`,
       method: "POST",
       data: {
         username,
