@@ -4,9 +4,13 @@ import axios from "axios";
 import PostList from "./postList";
 
 export default class Home extends Component {
-  state = {
-    posts: null
-  };
+  constructor() {
+    super();
+    this.state = {
+      posts: [],
+      isLoading:true
+    }
+  }
 
   getPosts(){
     axios({
@@ -14,22 +18,27 @@ export default class Home extends Component {
       method: "POST",
       data: {
         query: `{
-          posts {
+          posts{
             id
             title
             descriptionShort
             img
           }
-        }
-      `
+        }`
       },
-    }).then((data)=>{
-      this.setState({posts: data})
-    }).catch(e => console.log(e));
+    })
+      .then((posts)=>{
+        this.setState({posts: posts.data.data.posts, isLoading: false});
+      })
+      .catch()
+  }
+  componentDidMount() {
+    this.getPosts();
   }
 
+
   render() {
-    this.getPosts();
+
     const isAuthenticated = window.localStorage.getItem("isAuthenticated");
 
     if (!isAuthenticated) {
@@ -40,15 +49,16 @@ export default class Home extends Component {
 
     //JSX
     return (
-      <div className="row pt-5">
-        <div className="col">
-          <h1>Тестовое задание</h1>
-          {this.state.posts &&
-            <PostList posts={this.state.posts}/>
-          }
+      <>
+      {!this.state.isLoading &&
+          <div className="row pt-5">
+            <div className="col">
+              <h1>Тестовое задание</h1>
+              <PostList posts={this.state.posts}/>
+            </div>
+          </div>
+      }</>
 
-        </div>
-      </div>
     );
   }
 }

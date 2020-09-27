@@ -6,6 +6,7 @@ import login from "./components/login";
 import notFound from "./components/notFound";
 import Navbar from "./components/navbar";
 import logout from "./components/logout";
+import postPage from "./components/postPage";
 
 export default class App extends Component {
 
@@ -22,7 +23,9 @@ export default class App extends Component {
             <Route exact path="/" component={home} />
             <Route path="/login" component={login} />
             <Route path="/logout" component={logout} />
+            <Route path="/post/:id" component={postPage}/>
             <Route path="*" component={notFound} />
+
           </Switch>
         </div>
       </Router>
