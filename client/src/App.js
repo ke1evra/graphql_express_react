@@ -12,7 +12,7 @@ export default class App extends Component {
 
 
   render() {
-    const isAuthenticated = window.localStorage.getItem("isAuthenticated");
+
     //JSX
     return (
       <Router>
