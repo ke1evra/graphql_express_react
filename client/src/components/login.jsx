@@ -54,10 +54,14 @@ export default class Login extends Component {
         <div className="col-sm-6 col-md-5 col-lg-4 mx-auto py-5">
           <h1>Авторизация</h1>
           <div className="bg-dark text-white p-3 my-5 rounded">
-            <p>Рабочая комбинация:</p>
+            <p>Рабочие комбинации:</p>
             <ul className="list-unstyled">
               <li>TestUser</li>
               <li>SuperPass2020</li>
+            </ul>
+            <ul className="list-unstyled">
+              <li>Admin</li>
+              <li>qwerty</li>
             </ul>
           </div>
           <form onSubmit={this.handleSubmit}>
