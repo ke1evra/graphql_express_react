@@ -9,27 +9,22 @@ const schema = buildSchema(`
     type Query {
         post(id: Int!): Post,
         posts: [Post],
-        postTitle: String
     }
     type Post {
         id: Int
         title: String
-        body: String
+        descriptionShort: String
+        descriptionLarge: String
         img: String
     }
 `);
 
 const root = {
     post: ({id}) => {
-        const post = _.find(posts, {id: id});
-        console.log(post);
-        return post;
+        return _.find(posts, {id: id});
         },
     posts: () => {
         return posts;
-    },
-    postTitle: () => {
-        return 'Build a Simple GraphQL Server With Express and NodeJS';
     },
 };
 
