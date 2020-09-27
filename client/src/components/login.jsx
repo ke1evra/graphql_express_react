@@ -29,7 +29,7 @@ export default class Login extends Component {
       })
       .catch((e) => {
         this.setState({
-          errorMessage: e.response.data.message || 'Что-то пошло не так',
+          errorMessage: e.response? e.response.data.message : e.message || 'Что-то пошло не так',
         });
       });
   };
