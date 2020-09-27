@@ -30,9 +30,10 @@ export default class postPage extends Component {
     })
       .then((post)=>{
         console.log(post.data.data.post);
-        this.setState({post: post.data.data.post, isLoading: false});
+        this.setState({post: post.data.data.post});
       })
-      .catch()
+      .catch(e => console.log(e))
+      .finally(()=> this.setState({isLoading: false}))
   }
   componentDidMount() {
     this.getPost(this.props.match.params.id);
@@ -46,12 +47,15 @@ export default class postPage extends Component {
     if (!isAuthenticated) {
       return <Redirect to="/login" />;
     }
-
+    if(!this.state.isLoading && !this.state.post){
+      return <Redirect to="/404"/>
+    }
 
 
     //JSX
     return (
       <>
+
         {!this.state.isLoading &&
         <div className="row py-5">
           <div className="col">

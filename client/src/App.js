@@ -23,7 +23,8 @@ export default class App extends Component {
             <Route exact path="/" component={home} />
             <Route path="/login" component={login} />
             <Route path="/logout" component={logout} />
-            <Route path="/post/:id" component={postPage}/>
+            <Route path="/post/:id" component={postPage} />
+            <Route path="/404" component={notFound} />
             <Route path="*" component={notFound} />
 
           </Switch>
