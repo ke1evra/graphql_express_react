@@ -59,7 +59,7 @@ export default class postPage extends Component {
               <div className="col">
                 <h1>{this.state.post.title}</h1>
                 <p><a href="/" className="btn btn-primary">&larr; Назад</a></p>
-                <p><img src={this.state.post.img} alt=""/></p>
+                <p><img src={this.state.post.img} className="img-fluid" alt=""/></p>
                 <p>{this.state.post.descriptionShort}</p>
                 <p>{nl2br(this.state.post.descriptionLarge)}</p>
               </div>

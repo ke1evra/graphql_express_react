@@ -15,7 +15,7 @@ export default class Navbar extends Component {
           <span className="navbar-brand">{username}</span>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <a className="nav-link" href="logout" title="Выйти из системы">
+              <a className="nav-link" href="/logout" title="Выйти из системы">
                 Выход
               </a>
             </li>

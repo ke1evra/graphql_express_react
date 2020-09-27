@@ -53,7 +53,7 @@ export default class Home extends Component {
       {!this.state.isLoading &&
           <div className="row pt-5">
             <div className="col">
-              <h1>Тестовое задание</h1>
+              <h1>Аквариумные рыбки</h1>
               <PostList posts={this.state.posts}/>
             </div>
           </div>
